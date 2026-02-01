@@ -1,43 +1,29 @@
-<html lang="es-Es">
+<html lang="es-ES">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Notificar incidencia</title>
-<style>
-  @media (max-width: 600px) {
-        form {
-            margin: 20px auto;
-            padding: 15px;
-        }
-        legend {
-            font-size: 1.2em;
-        }
 
-        button {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    }
-    #video-fondo {
+<style>
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#video-fondo {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-fit: left center:  
+    object-position: left center;
     z-index: -1;
 }
 
-    body {
-    margin: 0;
-    min-height: 100vh;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-    }
-
-    form {
-     form {
+form {
     position: relative;
     z-index: 2;
     width: 90%;
@@ -47,108 +33,110 @@
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    color: white;
 }
 
-    }
+fieldset {
+    border: 2px solid #0077cc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+}
 
-    fieldset {
-        border: 2px solid #0077cc;
-        border-radius: 8px;
-        margin-bottom: 15px;
+legend {
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255,255,255,0.9);
+    color: #000;
+}
+
+textarea {
+    resize: none;
+}
+
+::placeholder {
+    color: #666;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+button[type="reset"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+    form {
+        margin: 20px auto;
         padding: 15px;
     }
-
-    legend {
-        font-weight: bold;
-        color: #e0e0e0;
-    }
-
-    label {
-        font-weight: bold;
-    }
-
-    input, select, textarea {
-        background-color: rgba(255,255,255,0.9);
-        color: #000;
-    }
-
-    textarea {
-        resize: none;
-    }
-
-    button {
-        padding: 10px 15px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    button[type="submit"] {
-        background-color: #28a745;
-        color: white;
-    }
-
-    button[type="reset"] {
-        background-color: #dc3545;
-        color: white;
-    }
-
-    button:hover {
-        opacity: 0.8;
-    }
-    ::placeholder {
-        color: #666;
-    }
-
-    html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
 }
-
 </style>
 </head>
+
 <body>
+
 <video autoplay muted loop id="video-fondo">
     <source src="Sonic2.mp4" type="video/mp4">
 </video>
-<form action="procesar-incidencia.php" method="post">
+
+<form>
 <fieldset>
 <legend>Datos de la incidencia</legend>
-<label for="nombre_usuario">Usuario:</label>
-<pr>
-<input type="text" name="usuario" id="nombre_usuario"><br><br>
-<label for="nombre_departamento">Departamento</label>
-<br>
-<select name="departamento" id="nombre_departamento">
-    <option value="informatica">informatica</option>
-    <option value="Marketing">Marketing</option>
-    <option value="ventas">Ventas</option>
+
+<label>Usuario</label>
+<input type="text">
+
+<label>Departamento</label>
+<select>
+    <option>Informática</option>
+    <option>Marketing</option>
+    <option>Ventas</option>
 </select>
-<br><br>
-<label for="descripcion_incidencia">Descripcion:</label>
-<br>
-<textarea
-  name="incidencia"
-  rows="3"
-  cols="40"
-  id="descripcion_incidencia"
-  placeholder="Describa la incidencia por favor...">
-</textarea>
-<br><br>
-<label for="Clave_usuario">Contraseña</label>
-<br>
-<input type="password" name="clave" id="Clave_usuario">
+
+<label>Descripción</label>
+<textarea rows="3" placeholder="Describa la incidencia por favor..."></textarea>
+
+<label>Contraseña</label>
+<input type="password">
+
 </fieldset>
+
 <fieldset>
-    <legend>Botones de reset y envio</legend>
-    <button type="reset">Resetear</button>
-    <button type="submit">Enviar</button>
-    </fieldset>
+<legend>Botones</legend>
+<button type="reset">Resetear</button>
+<button type="submit">Enviar</button>
+</fieldset>
 </form>
 </body>
 </html>
-
-
-
