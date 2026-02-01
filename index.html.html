@@ -1,0 +1,119 @@
+<html lang="es-Es">
+<head>
+<meta charset="utf-8">
+<title>Notificar incidencia</title>
+<style>
+    #video-fondo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        object-fit: cover;
+    }
+    body {
+        background-color: #f0f4f8;
+        font-family: Arial, sans-serif;
+    }
+
+    form {
+       width: 400px;
+       margin: 40px auto;
+       background-color: rgba(0,0,0,0.65);
+         padding: 20px;
+         border-radius: 12px;
+         box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    fieldset {
+        border: 2px solid #0077cc;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 15px;
+    }
+
+    legend {
+        font-weight: bold;
+        color: #e0e0e0;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input, select, textarea {
+        background-color: rgba(255,255,255,0.9);
+        color: #000;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button[type="submit"] {
+        background-color: #28a745;
+        color: white;
+    }
+
+    button[type="reset"] {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+    ::placeholder {
+        color: #666;
+    }
+</style>
+</head>
+<body>
+<video autoplay muted loop id="video-fondo">
+    <source src="Sonic2.mp4" type="video/mp4">
+</video>
+<form action="procesar-incidencia.php" method="post">
+<fieldset>
+<legend>Datos de la incidencia</legend>
+<label for="nombre_usuario">Usuario:</label>
+<pr>
+<input type="text" name="usuario" id="nombre_usuario"><br><br>
+<label for="nombre_departamento">Departamento</label>
+<br>
+<select name="departamento" id="nombre_departamento">
+    <option value="informatica">informatica</option>
+    <option value="Marketing">Marketing</option>
+    <option value="ventas">Ventas</option>
+</select>
+<br><br>
+<label for="descripcion_incidencia">Descripcion:</label>
+<br>
+<textarea
+  name="incidencia"
+  rows="3"
+  cols="40"
+  id="descripcion_incidencia"
+  placeholder="Describa la incidencia por favor...">
+</textarea>
+<br><br>
+<label for="Clave_usuario">Contraseña</label>
+<br>
+<input type="password" name="clave" id="Clave_usuario">
+</fieldset>
+<fieldset>
+    <legend>Botones de reset y envio</legend>
+    <button type="reset">Resetear</button>
+    <button type="submit">Enviar</button>
+    </fieldset>
+</form>
+</body>
+</html>
